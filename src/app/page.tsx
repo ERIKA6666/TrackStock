@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { supabase } from "../lib/locks"
 
+//Dentro de tipado
 type Product = {
   id_product: number
   name: string
@@ -10,9 +11,11 @@ type Product = {
 }
 
 export default function Home() {
+  //Dentro de los hooks
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
+    //Dentro de los services
     const getProducts = async () => {
       const { data, error } = await supabase.from("Product").select("*")
       if (error) console.error(error)
