@@ -1,3 +1,6 @@
+import{ Truck } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +30,40 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
+        {/* Header Section */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <Truck className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <h1 className="text-xl font-bold text-foreground">TrackStock</h1>
+            </div>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+                Características
+              </Link>
+              <Link href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+                Soluciones
+              </Link>
+              <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                Contacto
+              </Link>
+            </nav>
+            <div className="flex items-center gap-3">
+              <Link href="/login">
+                <Button variant="outline" size="sm">
+                  Iniciar Sesión
+                </Button>
+                </Link>
+              <Button size="sm" className="bg-accent hover:bg-accent/90">
+                Comenzar Gratis
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
         {children}
       </body>
     </html>
