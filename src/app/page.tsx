@@ -6,6 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, BarChart3, Package, Route, Shield, Truck, Users } from "lucide-react"
 import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Mail, MapPin, Phone } from "lucide-react"
+
 
 export default function Home() {
   
@@ -140,6 +144,140 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 px-4 bg-card/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">¿Tienes preguntas? Contáctanos</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Nuestro equipo está listo para ayudarte a encontrar la mejor solución para tu empresa
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-foreground">Información de Contacto</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Email</h4>
+                      <p className="text-muted-foreground">contacto@logispro.com</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Teléfono</h4>
+                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Oficina</h4>
+                      <p className="text-muted-foreground">
+                        123 Business Ave, Suite 100
+                        <br />
+                        Ciudad, Estado 12345
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Card className="border-border">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold mb-2 text-foreground">Horarios de Atención</h4>
+                  <div className="space-y-1 text-muted-foreground">
+                    <p>Lunes - Viernes: 9:00 AM - 6:00 PM</p>
+                    <p>Sábados: 10:00 AM - 2:00 PM</p>
+                    <p>Domingos: Cerrado</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="border-border">
+              <CardHeader>
+                <CardTitle className="text-card-foreground">Envíanos un Mensaje</CardTitle>
+                <CardDescription>
+                  Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="text-sm font-medium text-foreground">
+                      Nombre *
+                    </label>
+                    <Input id="firstName" placeholder="Tu nombre" className="border-border" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="text-sm font-medium text-foreground">
+                      Apellido *
+                    </label>
+                    <Input id="lastName" placeholder="Tu apellido" className="border-border" required />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                    Email *
+                  </label>
+                  <Input id="email" type="email" placeholder="tu@empresa.com" className="border-border" required />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="company" className="text-sm font-medium text-foreground">
+                    Empresa
+                  </label>
+                  <Input id="company" placeholder="Nombre de tu empresa" className="border-border" />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-medium text-foreground">
+                    Teléfono
+                  </label>
+                  <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" className="border-border" />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    Mensaje *
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."
+                    className="border-border min-h-[120px]"
+                    required
+                  />
+                </div>
+
+                <Button className="w-full bg-primary hover:bg-primary/90">
+                  Enviar Mensaje
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+
+                <p className="text-xs text-muted-foreground text-center">
+                  Al enviar este formulario, aceptas nuestros términos de servicio y política de privacidad.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
       {/* Footer */}
